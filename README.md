@@ -127,7 +127,7 @@ Week|Date|Topics|Readings|Assignments|Recording
 2|1/17|Names and Things|Chapter 2	| | https://youtu.be/FonG1tNdErA
 3|1/24|Control – if / else / switch|Chapter 3|Project 0|https://www.youtube.com/watch?v=W_wl9HEHaBE
 4|1/31|Control – while, do, and for loops|Chapter 3	| | https://www.youtube.com/watch?v=h6z5ocNAdxw
-5|2/7|Project 0 Review & Subroutines|Chapter 4|Project 1
+5|2/7|Project 0 Review & Subroutines|Chapter 4|Project 1 | https://youtu.be/szpkOGplO8k
 6|2/14|Objects and Classes|Chapter 5.1 – 5.4	
 7|2/21|Project 1 Review & Objects and Classes|Chapter 5.5 – 5.8|Project 2
 8|2/28|Winter break		|
