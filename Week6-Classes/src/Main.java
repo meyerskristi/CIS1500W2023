@@ -31,30 +31,35 @@ public class Main {
         printBankAccountDetails(ericsChecking);
         printBankAccountDetails(ericsSavings);
 
-        System.out.println("Which account do you want to withdraw from?");
+        withdrawFromAccount(
+                getAccountByName("Which account do you want to withdrawn from?"
+                        , ericsChecking, ericsSavings, ericsDisneyFund));
+
+        depositToAccount(
+                getAccountByName("Which account do you want to deposit to?"
+                        , ericsChecking, ericsSavings, ericsDisneyFund));
+
+    }
+
+    public static BankAccount getAccountByName(String prompt, BankAccount checking, BankAccount savings, BankAccount disneyFund){
+        Scanner keyboard = new Scanner(System.in);
+
+        System.out.println(prompt);
         String account = keyboard.nextLine();
 
-        if ( account.equalsIgnoreCase("Checking")) {
-            withdrawFromAccount(ericsChecking);
-        } else if ( account.equalsIgnoreCase("Savings")){
-            withdrawFromAccount(ericsSavings);
-        } else if ( account.equalsIgnoreCase("disney fund")){
-            withdrawFromAccount(ericsDisneyFund);
-        } else{
-            System.out.println("Didn't recognize the account");
+        while ( !account.equalsIgnoreCase("checking") &&
+                !account.equalsIgnoreCase("savings") &&
+                !account.equalsIgnoreCase("disney fund")){
+            System.out.println("Which account do you want?");
+            account = keyboard.nextLine();
         }
 
-        System.out.println("Which account do you want to deposit to?");
-        account = keyboard.nextLine();
-
         if ( account.equalsIgnoreCase("Checking")) {
-            depositToAccount(ericsChecking);
+            return checking;
         } else if ( account.equalsIgnoreCase("Savings")){
-            depositToAccount(ericsSavings);
-        } else if ( account.equalsIgnoreCase("disney fund")){
-           depositToAccount(ericsDisneyFund);
-        } else{
-            System.out.println("Didn't recognize the account");
+            return savings;
+        } else {
+            return disneyFund;
         }
     }
 
