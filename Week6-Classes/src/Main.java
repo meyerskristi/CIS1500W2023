@@ -44,6 +44,21 @@ public class Main {
             System.out.println("Didn't recognize the account");
         }
 
+        System.out.println("Which account do you want to deposit to?");
+        account = keyboard.nextLine();
+
+        System.out.println("How much do you want to deposit?");
+        double deposit = Double.parseDouble(keyboard.nextLine());
+
+        if ( account.equalsIgnoreCase("Checking")) {
+            ericsChecking.deposit(deposit);
+        } else if ( account.equalsIgnoreCase("Savings")){
+            ericsSavings.deposit(deposit);
+        } else if ( account.equalsIgnoreCase("disney fund")){
+            ericsDisneyFund.deposit(deposit);
+        } else{
+            System.out.println("Didn't recognize the account");
+        }
 
 
 
