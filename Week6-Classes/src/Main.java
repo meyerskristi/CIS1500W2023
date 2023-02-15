@@ -47,21 +47,26 @@ public class Main {
         System.out.println("Which account do you want to deposit to?");
         account = keyboard.nextLine();
 
-        System.out.println("How much do you want to deposit?");
-        double deposit = Double.parseDouble(keyboard.nextLine());
-
         if ( account.equalsIgnoreCase("Checking")) {
-            ericsChecking.deposit(deposit);
+            depositToAccount(ericsChecking);
         } else if ( account.equalsIgnoreCase("Savings")){
-            ericsSavings.deposit(deposit);
+            depositToAccount(ericsSavings);
         } else if ( account.equalsIgnoreCase("disney fund")){
-            ericsDisneyFund.deposit(deposit);
+           depositToAccount(ericsDisneyFund);
         } else{
             System.out.println("Didn't recognize the account");
         }
+    }
 
+    public static void depositToAccount(BankAccount account){
+        Scanner keyboard = new Scanner(System.in);
 
+        System.out.println("How much do you want to deposit?");
+        double deposit = Double.parseDouble(keyboard.nextLine());
 
+        account.deposit(deposit);
+
+        System.out.println("Your new balance is: $" + account.getBalance());
 
     }
 
