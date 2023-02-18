@@ -14,12 +14,15 @@ public class BankAccount {
     // no STATIC keyword
     // name of the method matches the name of the class
     // the job of a Constructor is to give attributes values
+
+    // default constructor accepts no arguments, just sets default values
     public BankAccount(){
         ownersName = "";
         balance = 0;
         interestRate = 0;
     }
 
+    // parameterized constructor, has parameters to set values of attributes
     public BankAccount(String ownersName, double balance, double interestRate){
         this.ownersName = ownersName;
         this.balance = balance;
