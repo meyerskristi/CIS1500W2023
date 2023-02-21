@@ -14,23 +14,11 @@ public class Main {
             command = getValidCommand();
             turnCount++;
 
-            if ( command.equalsIgnoreCase(goNorth)) {
-                goNorth();
-            } else if (command.equalsIgnoreCase("go east")){
-                goEast();
-            } else if (command.equalsIgnoreCase("go south")){
-                goSouth();
-            } else if (command.equalsIgnoreCase("go west")){
-                goWest();
-            }else if (command.equalsIgnoreCase("walk")){
-               walk();
-            } else if (command.equalsIgnoreCase("fight")){
-                fight();
-            } else if (command.equalsIgnoreCase("jump")){
-                jump();
-            }else if (command.equalsIgnoreCase("flip")){
+             if (command.equalsIgnoreCase("flip")){
                 flip();
-            }
+            } else{
+                 System.out.println(getCommandResult(command));
+             }
         }
 
         // avoid counting escape word
@@ -52,32 +40,24 @@ public class Main {
         System.out.println("You slept and feel all better!");
     }
 
-    private static void jump() {
-        System.out.println("you jump up and down");
-    }
-
-    private static void fight() {
-        System.out.println("you fight with a troll");
-    }
-
-    private static void walk() {
-        System.out.println("you went for a walk");
-    }
-
-    private static void goWest() {
-        System.out.println("you went west");
-    }
-
-    private static void goSouth() {
-        System.out.println("you went south");
-    }
-
-    private static void goEast() {
-        System.out.println("you went east");
-    }
-
-    private static void goNorth() {
-        System.out.println("you went north");
+    private static String getCommandResult(String command){
+        if ( command.equalsIgnoreCase(goNorth)) {
+            return "You go north";
+        } else if (command.equalsIgnoreCase("go east")){
+            return "you go east";
+        } else if (command.equalsIgnoreCase("go south")){
+            return "you go south";
+        } else if (command.equalsIgnoreCase("go west")){
+            return "you go west";
+        }else if (command.equalsIgnoreCase("walk")){
+           return "you go for a walk";
+        } else if (command.equalsIgnoreCase("fight")){
+            return "you fight a twitter trolls";
+        } else if (command.equalsIgnoreCase("jump")){
+            return "You jump";
+        }else{
+            return "";
+        }
     }
 
     private static String getValidCommand() {
