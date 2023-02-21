@@ -4,6 +4,7 @@ public class Main {
 
     // just an option to avoid using strings everywhere and having typos
     static String goNorth = "go north";
+    static boolean wounded = false;
 
     public static void main(String[] args) {
         int turnCount = 0;
@@ -13,31 +14,13 @@ public class Main {
         while( !command.equalsIgnoreCase("escape")){
             command = getValidCommand();
             turnCount++;
-
-             if (command.equalsIgnoreCase("flip")){
-                flip();
-            } else{
-                 System.out.println(getCommandResult(command));
-             }
+            System.out.println(getCommandResult(command));
         }
 
         // avoid counting escape word
         turnCount--;
         System.out.println("Thanks for playing our terrible game, it took you "
                 + turnCount + " turns to escape!");
-    }
-
-    private static void flip() {
-        System.out.println("you try and flip and hurt yourself");
-        Scanner keyboard = new Scanner(System.in);
-        String command = "";
-
-        while ( !command.equalsIgnoreCase("sleep")) {
-            System.out.println("you need to sleep it off");
-            command = keyboard.nextLine();
-        }
-
-        System.out.println("You slept and feel all better!");
     }
 
     private static String getCommandResult(String command){
@@ -55,7 +38,13 @@ public class Main {
             return "you fight a twitter trolls";
         } else if (command.equalsIgnoreCase("jump")){
             return "You jump";
-        }else{
+        }else if ( command.equalsIgnoreCase("flip")){
+            wounded = true;
+            return "you try and flip and hurt yourself, you need to sleep it off";
+        } else if ( command.equalsIgnoreCase("sleep") ) {
+            wounded = false;
+            return "You sleep and feel better!";
+        } else {
             return "";
         }
     }
@@ -67,7 +56,7 @@ public class Main {
 
         String command = keyboard.nextLine();
 
-        while ( !command.equalsIgnoreCase("escape") &&
+        while ( (!command.equalsIgnoreCase("escape") &&
                 !command.equalsIgnoreCase(goNorth) &&
                 !command.equalsIgnoreCase("go east") &&
                 !command.equalsIgnoreCase("go south") &&
@@ -75,10 +64,16 @@ public class Main {
                 !command.equalsIgnoreCase("walk") &&
                 !command.equalsIgnoreCase("fight") &&
                 !command.equalsIgnoreCase("jump") &&
-                !command.equalsIgnoreCase("flip") ){
-            System.out.println("That's not a valid command, you can pick: " +
-                    "go north, go east, go south, go west, walk, fight, jump, or flip");
+                !command.equalsIgnoreCase("flip") &&
+                !command.equalsIgnoreCase("sleep"))
+                || (wounded && !command.equalsIgnoreCase("sleep") ) ){
 
+            if ( wounded ){
+                System.out.println("You have to sleep it off");
+            } else {
+                System.out.println("That's not a valid command, you can pick: " +
+                        "go north, go east, go south, go west, walk, fight, jump, or flip");
+            }
             System.out.println("What do you want to do?");
 
             command = keyboard.nextLine();
