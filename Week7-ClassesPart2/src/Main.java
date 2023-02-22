@@ -1,9 +1,17 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         Mammal koala = new Mammal("munch", "grey", "bear");
 
         Dog pepper = new Dog("woof", "black and white", "pepper", 100, "beagle lab mutt");
 
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("What's your dogs breed?");
+
+        String dogsBreed = keyboard.nextLine();
+
+        pepper.setBreed(dogsBreed);
         printMammalDetails(pepper);
 
         Square smallSquare = new Square(10);
