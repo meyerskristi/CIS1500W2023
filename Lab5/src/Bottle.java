@@ -13,13 +13,15 @@ public class Bottle {
     }
 
     public Bottle(int maxVolumeInMilliliters, int currentVolumeInMilliliters, String beverageName) {
-        this.maxVolumeInMilliliters = maxVolumeInMilliliters;
-        this.currentVolumeInMilliliters = currentVolumeInMilliliters;
-        this.beverageName = beverageName;
+        setMaxVolumeInMilliliters(maxVolumeInMilliliters);
+        this.currentVolumeInMilliliters = 0;
+        fill(currentVolumeInMilliliters);
+        setBeverageName(beverageName);
     }
 
     public boolean drink(int millilitersToDrink ){
-        if ( millilitersToDrink > currentVolumeInMilliliters){
+        if ( millilitersToDrink > currentVolumeInMilliliters
+                || millilitersToDrink < 0 ){
             return false;
         }
         currentVolumeInMilliliters -= millilitersToDrink;
@@ -27,7 +29,8 @@ public class Bottle {
     }
 
     public boolean fill(int millilitersToFill){
-        if ( currentVolumeInMilliliters + millilitersToFill > maxVolumeInMilliliters){
+        if ( currentVolumeInMilliliters + millilitersToFill > maxVolumeInMilliliters
+                || millilitersToFill < 0 ){
             return false;
         }
         currentVolumeInMilliliters += millilitersToFill;
@@ -39,7 +42,12 @@ public class Bottle {
     }
 
     public void setMaxVolumeInMilliliters(int maxVolumeInMilliliters) {
-        this.maxVolumeInMilliliters = maxVolumeInMilliliters;
+        if ( maxVolumeInMilliliters > 0 ) {
+            this.maxVolumeInMilliliters = maxVolumeInMilliliters;
+        }
+        else {
+            this.maxVolumeInMilliliters = 0;
+        }
     }
 
     public int getCurrentVolumeInMilliliters() {
