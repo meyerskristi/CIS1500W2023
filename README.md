@@ -131,7 +131,7 @@ Week|Date|Topics|Readings|Assignments|Recording
 6|2/14|Objects and Classes|Chapter 5.1 – 5.4	| |https://youtu.be/pgD9hLpo2wY
 7|2/21|Project 1 Review & Objects and Classes|Chapter 5.5 – 5.8|Project 2|https://youtu.be/JzzkZSsVRm4
 8|2/28|Winter break		|
-9|3/7|Arrays, ArrayLists, and Records|Chapter 7	
+9|3/7|Arrays, ArrayLists, and Records|Chapter 7	| | https://youtu.be/boWTxr1B1r0
 10|3/14|Project 2 Review & Input/Output Streams, Files|Chapter 11.1 – 11.3|Project 3
 11|3/21|Midterm review / exam||Midterm
 12|3/28|Project 3 Review & Introduction to GUI Programming|Chapter 6|Final project
