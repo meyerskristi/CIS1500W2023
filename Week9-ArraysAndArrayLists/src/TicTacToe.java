@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class TicTacToe {
@@ -21,6 +22,19 @@ public class TicTacToe {
                 board.get(rowIndex).add(EMPTY);
             }
         }
+    }
+
+    @Override
+    public String toString(){
+        String result = "";
+        for(ArrayList<Character> row : board){
+            result += row.toString() + "\n";
+        }
+        return result;
+    }
+
+    public char getCurrentPlayer() {
+        return currentPlayer;
     }
 
     private boolean someoneWonByRow() {

@@ -3,6 +3,31 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+
+        TicTacToe game = new TicTacToe();
+
+        while( !game.isGameOver()){
+            System.out.println(game);
+
+            System.out.println(game.getCurrentPlayer() + "'s turn");
+
+            System.out.println("What row index? 0-2 ");
+            int rowIndex = Integer.parseInt(keyboard.nextLine());
+
+            System.out.println("What column index? 0-2 ");
+            int columnIndex = Integer.parseInt(keyboard.nextLine());
+
+            if ( !game.mark(rowIndex, columnIndex)){
+                System.out.println("Invalid, try again");
+            }
+
+        }
+
+        System.out.println("Game over!");
+        System.out.println(game);
+
+
         // array of type int, called numbers, with slots for 6 ints
         int[] numbers = new int[6];
 
@@ -22,7 +47,7 @@ public class Main {
         // NOT A COPY - two variables pointed at the same array in memory
         int[] copyOtherNumbers = otherNumbers;
 
-        Scanner keyboard = new Scanner(System.in);
+
 
         System.out.println("How many test scores do you have to enter?");
 
