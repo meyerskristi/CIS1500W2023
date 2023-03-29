@@ -134,7 +134,7 @@ Week|Date|Topics|Readings|Assignments|Recording
 9|3/7|Arrays, ArrayLists, and Records|Chapter 7	| | https://youtu.be/boWTxr1B1r0
 10|3/14|Project 2 Review & Input/Output Streams, Files|Chapter 11.1 – 11.3|Project 3|https://youtu.be/p09JPquqqSU
 11|3/21|Midterm review / exam||Midterm
-12|3/28|Project 3 Review & Introduction to GUI Programming|Chapter 6|Final project
+12|3/28|Project 3 Review & Introduction to GUI Programming|Chapter 6|Final project|https://youtu.be/Tz0S-Mm2KIs
 13|4/4|Correctness, Robustness, Efficiency|	Chapter 8	
 14|4/11|GUI Programming Continued|	Chapter 13	
 15|4/18|Final project work time	|
