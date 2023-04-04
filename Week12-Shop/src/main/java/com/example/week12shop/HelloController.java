@@ -29,17 +29,26 @@ public class HelloController {
     @FXML
     public void addItemButtonClicked(ActionEvent actionEvent) throws IOException {
         Shop shop = new Shop();
-        Item item = new Item(itemNameTextField.getText(),
-                Integer.parseInt(itemQuantityTextField.getText()),
-                Double.parseDouble(itemPriceTextField.getText()));
-        if (!shop.addItem(item)) {
-            errorLabel.setText("Unable to add item, update item instead");
-        } else {
-            errorLabel.setText("");
-            itemNameTextField.setText("");
-            itemQuantityTextField.setText("");
-            itemPriceTextField.setText("");
+        try {
+            Item item = new Item(itemNameTextField.getText(),
+                    Integer.parseInt(itemQuantityTextField.getText()),
+                    Double.parseDouble(itemPriceTextField.getText()));
+            try {
+                if (!shop.addItem(item)) {
+                    errorLabel.setText("Unable to add item, update item instead");
+                } else {
+                    errorLabel.setText("");
+                    itemNameTextField.setText("");
+                    itemQuantityTextField.setText("");
+                    itemPriceTextField.setText("");
+                }
+            } catch (IOException ex) {
+                errorLabel.setText(ex.toString());
+            }
+        } catch (NumberFormatException ex) {
+            errorLabel.setText("Unable to read quantity or price\n" + ex.toString());
         }
+
     }
 
     @FXML
@@ -50,9 +59,9 @@ public class HelloController {
 
         Item item = shop.getItem(itemName);
 
-        if ( item == null ){
+        if (item == null) {
             errorLabel.setText("Item not found!");
-        } else{
+        } else {
             itemPriceTextField.setText(Double.toString(item.getPrice()));
             itemQuantityTextField.setText(Integer.toString(item.getQuantity()));
         }
@@ -61,16 +70,35 @@ public class HelloController {
     @FXML
     public void updateItemButtonClicked(ActionEvent actionEvent) throws IOException {
         Shop shop = new Shop();
-        Item item = new Item(itemNameTextField.getText(),
-                Integer.parseInt(itemQuantityTextField.getText()),
-                Double.parseDouble(itemPriceTextField.getText()));
-        if (!shop.updateItem(item)) {
-            errorLabel.setText("Unable to update item, add item");
-        } else {
-            errorLabel.setText("");
-            itemNameTextField.setText("");
-            itemQuantityTextField.setText("");
-            itemPriceTextField.setText("");
+
+        try {
+            Item item = new Item(itemNameTextField.getText(),
+                    Integer.parseInt(itemQuantityTextField.getText()),
+                    Double.parseDouble(itemPriceTextField.getText()));
+
+            if (!shop.updateItem(item)) {
+                errorLabel.setText("Unable to update item, add item");
+            } else {
+                errorLabel.setText("");
+                itemNameTextField.setText("");
+                itemQuantityTextField.setText("");
+                itemPriceTextField.setText("");
+            }
+            // NumberFormatException OR IOException
+        } catch (NumberFormatException ex) {
+            errorLabel.setText("Unable to read quantity or price\n" + ex.toString());
+        } catch (IOException | IllegalPriceArgumentException ex) {
+            // this is ugly, sorry
+            if (ex.getClass() == IOException.class || ex.getClass() == IllegalPriceArgumentException.class) {
+                errorLabel.setText(ex.toString());
+            } // this else will never run, the only other type was NumberFormatException which would have been caught above
+            else {
+                errorLabel.setText("Unable to read quantity or price\n" + ex.toString());
+            }
         }
+
+        // bad form to catch Exception
+        // catch (Exception e)
+
     }
 }

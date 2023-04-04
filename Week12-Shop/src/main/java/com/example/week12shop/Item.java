@@ -9,7 +9,7 @@ public class Item {
     public Item(String name, int quantity, double price) {
         this.name = name;
         this.quantity = quantity;
-        this.price = price;
+        setPrice(price);
     }
 
     public String getName() {
@@ -28,7 +28,11 @@ public class Item {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(double price) throws IllegalPriceArgumentException {
+        if ( price < 0 ){
+            // the string here is part of the exception message - shown when you toString it
+            throw new IllegalPriceArgumentException("Price can not be less than 0");
+        }
         this.price = price;
     }
 
