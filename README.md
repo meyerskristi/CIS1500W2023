@@ -135,7 +135,7 @@ Week|Date|Topics|Readings|Assignments|Recording
 10|3/14|Project 2 Review & Input/Output Streams, Files|Chapter 11.1 – 11.3|Project 3|https://youtu.be/p09JPquqqSU
 11|3/21|Midterm review / exam||Midterm
 12|3/28|Project 3 Review & Introduction to GUI Programming|Chapter 6|Final project|https://youtu.be/Tz0S-Mm2KIs
-13|4/4|Correctness, Robustness, Efficiency|	Chapter 8	
+13|4/4|Correctness, Robustness, Efficiency|	Chapter 8	 | | https://youtu.be/xBpLqS4YX54
 14|4/11|GUI Programming Continued|	Chapter 13	
 15|4/18|Final project work time	|
 16|4/25|Final project presentations|		
