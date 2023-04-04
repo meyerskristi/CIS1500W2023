@@ -26,9 +26,14 @@ public class HelloController {
     @FXML
     private Button updateItemButotn;
 
+    Shop shop;
+
+    public HelloController(){
+        shop = new Shop();
+    }
+
     @FXML
     public void addItemButtonClicked(ActionEvent actionEvent) throws IOException {
-        Shop shop = new Shop();
         try {
             Item item = new Item(itemNameTextField.getText(),
                     Integer.parseInt(itemQuantityTextField.getText()),
@@ -55,8 +60,6 @@ public class HelloController {
     public void lookupItemButtonClicked(ActionEvent actionEvent) throws FileNotFoundException {
         String itemName = itemNameTextField.getText();
 
-        Shop shop = new Shop();
-
         Item item = shop.getItem(itemName);
 
         if (item == null) {
@@ -69,7 +72,6 @@ public class HelloController {
 
     @FXML
     public void updateItemButtonClicked(ActionEvent actionEvent) throws IOException {
-        Shop shop = new Shop();
 
         try {
             Item item = new Item(itemNameTextField.getText(),
