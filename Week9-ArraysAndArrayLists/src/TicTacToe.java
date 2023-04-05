@@ -90,7 +90,7 @@ public class TicTacToe {
     }
 
     public boolean mark(int rowIndex, int columnIndex) {
-        if (rowIndex < 0 || rowIndex >= 3 || columnIndex < 0 || columnIndex >= 3
+        if (rowIndex < 0 || rowIndex >= board.size() || columnIndex < 0 || columnIndex >= board.get(rowIndex).size()
                 || board.get(rowIndex).get(columnIndex) != EMPTY) {
             return false;
         }
