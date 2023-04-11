@@ -4,6 +4,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
@@ -12,9 +13,13 @@
       <CheckBox fx:id="twoPercentMilkCheckBox" layoutX="88.0" layoutY="100.0" mnemonicParsing="false" onAction="#milkCheckBoxChecked" text="2% Milk" />
       <CheckBox fx:id="wholeMilkCheckBox" layoutX="89.0" layoutY="134.0" mnemonicParsing="false" onAction="#milkCheckBoxChecked" text="Whole Milk" />
       <CheckBox fx:id="soyMilkCheckBox" layoutX="89.0" layoutY="175.0" mnemonicParsing="false" onAction="#milkCheckBoxChecked" text="Soy Milk" />
-      <RadioButton fx:id="coffeeRadioButton" layoutX="213.0" layoutY="100.0" mnemonicParsing="false" onAction="#beverageTypeRadioButtonClicked" text="Coffee" />
-      <RadioButton fx:id="espressoRadioButton" layoutX="214.0" layoutY="134.0" mnemonicParsing="false" onAction="#beverageTypeRadioButtonClicked" text="Espresso" />
-      <RadioButton fx:id="teaRadioButton" layoutX="214.0" layoutY="175.0" mnemonicParsing="false" onAction="#beverageTypeRadioButtonClicked" text="Tea" />
+      <RadioButton fx:id="coffeeRadioButton" layoutX="213.0" layoutY="100.0" mnemonicParsing="false" onAction="#beverageTypeRadioButtonClicked" selected="true" text="Coffee">
+         <toggleGroup>
+            <ToggleGroup fx:id="beverageType" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="espressoRadioButton" layoutX="214.0" layoutY="134.0" mnemonicParsing="false" onAction="#beverageTypeRadioButtonClicked" text="Espresso" toggleGroup="$beverageType" />
+      <RadioButton fx:id="teaRadioButton" layoutX="214.0" layoutY="175.0" mnemonicParsing="false" onAction="#beverageTypeRadioButtonClicked" text="Tea" toggleGroup="$beverageType" />
       <Button fx:id="checkoutButton" layoutX="358.0" layoutY="139.0" mnemonicParsing="false" text="Checkout" />
       <Label fx:id="drinkLabel" layoutX="109.0" layoutY="47.0" />
    </children>
