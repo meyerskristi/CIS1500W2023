@@ -4,25 +4,30 @@
 public class ElectricVehicleFromChatBot {
     private String make;
     private String model;
-    private int batteryCapacity;
-    private int currentChargeLevel;
+    private double batteryCapacity;
+    private double currentChargeLevel;
 
-    public ElectricVehicle(String make, String model, int batteryCapacity) {
+    private double kilometersPerKilowattHour;
+
+    public ElectricVehicleFromChatBot(String make, String model, double batteryCapacity, double kilometersPerKilowattHour) {
         this.make = make;
         this.model = model;
         this.batteryCapacity = batteryCapacity;
+        this.kilometersPerKilowattHour = kilometersPerKilowattHour;
         this.currentChargeLevel = 0;
     }
 
-    public void charge(int chargeAmount) {
-        int newChargeLevel = currentChargeLevel + chargeAmount;
+    public void charge(double chargeAmount) {
+        double newChargeLevel = currentChargeLevel + chargeAmount;
         currentChargeLevel = Math.min(newChargeLevel, batteryCapacity);
     }
 
-    public void drive(int distance) {
-        int maxDistance = currentChargeLevel * 10; // assuming 1% charge = 10km range
-        int actualDistance = Math.min(distance, maxDistance);
-        currentChargeLevel -= actualDistance / 10;
+    public void drive(double distance) {
+        double maxDistance = currentChargeLevel * kilometersPerKilowattHour; // assuming 1% charge = 10km range
+        double actualDistance = Math.min(distance, maxDistance);
+        currentChargeLevel -= actualDistance / kilometersPerKilowattHour;
+        // check for negative
+        
         System.out.println("Driving " + actualDistance + " km");
     }
 
