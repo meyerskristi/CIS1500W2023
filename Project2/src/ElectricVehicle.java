@@ -15,11 +15,11 @@ public class ElectricVehicle {
         kilowattHoursInBattery = 0;
     }
 
-    public boolean drive(double kilometersToDrive){
+    public boolean drive(double kilometersToDrive)  throws IllegalArgumentException {
         double kilowattHoursRequiredForDistance = kilometersToDrive / kilometersPerKilowattHour;
 
         if (kilowattHoursRequiredForDistance > kilowattHoursInBattery) {
-            return false;
+            throw new IllegalArgumentException("You can't drive that far");
         }
 
         kilowattHoursInBattery -= kilowattHoursRequiredForDistance;
@@ -27,9 +27,9 @@ public class ElectricVehicle {
         return true;
     }
 
-    public boolean charge(double kilowattHoursToCharge){
+    public boolean charge(double kilowattHoursToCharge) throws IllegalArgumentException {
         if ( kilowattHoursInBattery + kilowattHoursToCharge > maxKilowattHoursInBattery){
-            return false;
+            throw new IllegalArgumentException("You can't charge that much");
         }
 
         kilowattHoursInBattery += kilowattHoursToCharge;
