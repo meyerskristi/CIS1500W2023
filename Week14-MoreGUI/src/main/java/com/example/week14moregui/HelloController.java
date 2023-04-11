@@ -28,10 +28,9 @@ public class HelloController {
     Beverage beverage;
     @FXML
     private ToggleGroup beverageType;
+    @FXML
+    private TextArea receiptTextArea;
 
-    public HelloController(){
-        beverage = new Beverage("");
-    }
 
 
     @FXML
@@ -61,7 +60,11 @@ public class HelloController {
             beverage.addMilk("Soy milk");
         }
 
-        drinkLabel.setText("$" + beverage.getCost());
+        if ( beverage == null ){
+            drinkLabel.setText("");
+        }else {
+            drinkLabel.setText(beverage.toString());
+        }
     }
 
 
@@ -70,4 +73,13 @@ public class HelloController {
         setupBeverage();
     }
 
+    @FXML
+    public void addToOrderButtonClicked(ActionEvent actionEvent) {
+        setupBeverage();
+        receiptTextArea.appendText(beverage.toString() + "\n");
+        twoPercentMilkCheckBox.setSelected(false);
+        wholeMilkCheckBox.setSelected(false);
+        soyMilkCheckBox.setSelected(false);
+        beverage = null;
+    }
 }

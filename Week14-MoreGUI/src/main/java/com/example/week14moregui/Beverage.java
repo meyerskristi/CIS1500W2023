@@ -46,4 +46,12 @@ public class Beverage {
     public void setMilks(ArrayList<String> milks) {
         this.milks = milks;
     }
+
+    @Override
+    public String toString(){
+        if ( milks.size() == 0 ){
+            return type + " $" + getCost();
+        }
+        return type + " with " + String.join(", ", milks) + " $" + getCost();
+    }
 }

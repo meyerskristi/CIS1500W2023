@@ -4,7 +4,10 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
@@ -20,7 +23,13 @@
       </RadioButton>
       <RadioButton fx:id="espressoRadioButton" layoutX="214.0" layoutY="134.0" mnemonicParsing="false" onAction="#beverageTypeRadioButtonClicked" text="Espresso" toggleGroup="$beverageType" />
       <RadioButton fx:id="teaRadioButton" layoutX="214.0" layoutY="175.0" mnemonicParsing="false" onAction="#beverageTypeRadioButtonClicked" text="Tea" toggleGroup="$beverageType" />
-      <Button fx:id="checkoutButton" layoutX="358.0" layoutY="139.0" mnemonicParsing="false" text="Checkout" />
+      <Button fx:id="checkoutButton" layoutX="358.0" layoutY="139.0" mnemonicParsing="false" onAction="#addToOrderButtonClicked" text="Add to Order" />
       <Label fx:id="drinkLabel" layoutX="109.0" layoutY="47.0" />
+      <TextArea fx:id="receiptTextArea" layoutX="137.0" layoutY="226.0" prefHeight="158.0" prefWidth="410.0" />
+      <ImageView fitHeight="104.0" fitWidth="145.0" layoutX="358.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@java.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
