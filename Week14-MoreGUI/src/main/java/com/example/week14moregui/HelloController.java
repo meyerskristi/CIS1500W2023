@@ -3,6 +3,8 @@ package com.example.week14moregui;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 
@@ -30,7 +32,8 @@ public class HelloController {
     private ToggleGroup beverageType;
     @FXML
     private TextArea receiptTextArea;
-
+    @FXML
+    private ImageView javaLogoImageView;
 
 
     @FXML
@@ -81,5 +84,8 @@ public class HelloController {
         wholeMilkCheckBox.setSelected(false);
         soyMilkCheckBox.setSelected(false);
         beverage = null;
+        // https://stackoom.com/en/question/3TtDd
+        javaLogoImageView.setImage(new Image(getClass().getResource("coffee.jpg").toExternalForm()));
+
     }
 }

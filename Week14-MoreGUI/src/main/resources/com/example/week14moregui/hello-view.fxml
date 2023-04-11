@@ -26,7 +26,7 @@
       <Button fx:id="checkoutButton" layoutX="358.0" layoutY="139.0" mnemonicParsing="false" onAction="#addToOrderButtonClicked" text="Add to Order" />
       <Label fx:id="drinkLabel" layoutX="109.0" layoutY="47.0" />
       <TextArea fx:id="receiptTextArea" layoutX="137.0" layoutY="226.0" prefHeight="158.0" prefWidth="410.0" />
-      <ImageView fitHeight="104.0" fitWidth="145.0" layoutX="358.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="javaLogoImageView" fitHeight="104.0" fitWidth="145.0" layoutX="358.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@java.png" />
          </image>
