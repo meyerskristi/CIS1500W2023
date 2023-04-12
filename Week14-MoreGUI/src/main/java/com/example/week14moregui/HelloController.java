@@ -1,6 +1,7 @@
 package com.example.week14moregui;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -35,6 +36,19 @@ public class HelloController {
     @FXML
     private ImageView javaLogoImageView;
 
+    ArrayList<ArrayList<Room>> maze;
+
+    public HelloController(){
+        
+        maze = new ArrayList<>();
+
+        for ( int rowIndex = 0; rowIndex < 10; rowIndex++ ){
+            maze.add( new ArrayList<>());
+            for ( int columnIndex = 0; columnIndex < 10; columnIndex++){
+                maze.get(rowIndex).add(new Room());
+            }
+        }
+    }
 
     @FXML
     public void milkCheckBoxChecked(ActionEvent actionEvent) {
@@ -87,5 +101,10 @@ public class HelloController {
         // https://stackoom.com/en/question/3TtDd
         javaLogoImageView.setImage(new Image(getClass().getResource("coffee.jpg").toExternalForm()));
 
+    }
+
+    @FXML
+    public void imageClicked(Event event) {
+        receiptTextArea.appendText("You clicked java!\n");
     }
 }
