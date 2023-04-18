@@ -38,6 +38,8 @@ public class HelloController {
 
     ArrayList<ArrayList<Room>> maze;
     Room[][] rooms;
+    @FXML
+    private ChoiceBox comboBox;
 
     public HelloController(){
 
@@ -64,6 +66,8 @@ public class HelloController {
     // sort of like a constructor, but the JavaFX stuff isn't null anymore
     public void initialize(){
         drinkLabel.setText("testing");
+        comboBox.getItems().addAll("test1", "test2", "test3");
+        comboBox.setOnAction(e -> imageClicked(e));
     }
 
     @FXML
@@ -122,5 +126,6 @@ public class HelloController {
     @FXML
     public void imageClicked(Event event) {
         receiptTextArea.appendText("You clicked java!\n");
+        drinkLabel.setText(comboBox.getValue().toString());
     }
 }
