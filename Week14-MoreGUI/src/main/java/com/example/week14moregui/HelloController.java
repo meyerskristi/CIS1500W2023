@@ -37,9 +37,18 @@ public class HelloController {
     private ImageView javaLogoImageView;
 
     ArrayList<ArrayList<Room>> maze;
+    Room[][] rooms;
 
     public HelloController(){
-        
+
+        rooms = new Room[10][10];
+
+        for ( int rowIndex = 0; rowIndex < 10; rowIndex++ ){
+            for ( int columnIndex = 0; columnIndex < 10; columnIndex++){
+                rooms[rowIndex][columnIndex] = new Room();
+            }
+        }
+
         maze = new ArrayList<>();
 
         for ( int rowIndex = 0; rowIndex < 10; rowIndex++ ){
@@ -48,6 +57,11 @@ public class HelloController {
                 maze.get(rowIndex).add(new Room());
             }
         }
+    }
+
+    // sort of like a constructor, but the JavaFX stuff isn't null anymore
+    public void initialize(){
+
     }
 
     @FXML
