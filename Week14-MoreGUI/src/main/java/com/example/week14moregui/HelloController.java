@@ -57,11 +57,13 @@ public class HelloController {
                 maze.get(rowIndex).add(new Room());
             }
         }
+        // this will crash, the label is null at this point in the constructor
+        // drinkLabel.setText("testing");
     }
 
     // sort of like a constructor, but the JavaFX stuff isn't null anymore
     public void initialize(){
-
+        drinkLabel.setText("testing");
     }
 
     @FXML
